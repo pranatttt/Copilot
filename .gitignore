@@ -28,6 +28,7 @@ build/
 
 .env
 .env.*
+!.env.example
 
 # ==============================
 # IDE files
