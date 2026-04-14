@@ -1,0 +1,23 @@
+#1. Use the Alpine version of Node.js for a very small and secure image
+FROM node:18-alpine
+
+# 2. Set the working directory inside the container
+WORKDIR /app
+
+# 3. Copy the package files first to take advantage of Docker caching
+# This avoids re-installing all your UI libraries every time you change a button
+COPY package.json package-lock.json* ./
+
+# 4. Install the UI dependencies (React, Tailwind, Lucide, etc.)
+# Using 'npm install' ensures we get exactly what's in your package.json
+RUN npm install
+
+# 5. Copy the rest of your React code into the container
+COPY . .
+
+# 6. Expose the port React usually runs on
+EXPOSE 3000
+
+# 7. Start the development server with hot-reloading
+# This allows you to see UI changes instantly as you save files
+CMD ["npm", "start"]

@@ -1,0 +1,30 @@
+fastapi==0.109.2
+uvicorn[standard]==0.27.1
+python-multipart==0.0.9
+
+# --- AI & LOCAL EMBEDDINGS ---
+langchain==0.1.9
+langchain-openai==0.0.8
+langchain-community==0.0.24
+# sentence-transformers is for the local all-MiniLM-L6-v2 model
+sentence-transformers==2.5.1
+# We use the CPU version of torch to keep the Docker image smaller
+torch==2.2.0 --index-url https://download.pytorch.org/whl/cpu
+
+# --- PROXY SUPPORT ---
+openai==1.13.3
+httpx==0.27.0
+tiktoken==0.6.0
+
+# --- DATABASE ---
+psycopg2-binary==2.9.9
+sqlalchemy==2.0.27
+databases==0.9.0
+pgvector==0.2.5
+
+# --- DATA PROCESSING ---
+pydantic==2.6.1
+pydantic-settings==2.2.1
+pandas==2.2.0
+numpy==1.26.4
+python-dotenv==1.0.1
